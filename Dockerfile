@@ -14,6 +14,8 @@ RUN \
   && cd /opt/bro/share/bro/site/file-extraction/plugins \
   && echo "@load ./extract-all-files.bro" >> __load__.bro
 
+ENV PATH /opt/bro/bin:$PATH
+
 RUN \
   yum -y remove cmake make gcc gcc-c++ flex bison swig wget git swig 
 
@@ -21,4 +23,3 @@ RUN mkdir /pcaps
 VOLUME ["/pcaps"]
 WORKDIR /pcaps
 
-ENV PATH /opt/bro/bin:$PATH
